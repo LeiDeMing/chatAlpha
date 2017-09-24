@@ -1,0 +1,13 @@
+body,html,h1,h2,h3,h4,h5,h6,form,ul,dl,ol,dd,datalist,p{margin:0;padding:0;}
+h1,h2,h3,h4,h5,h6{font-weight:normal;}
+input{outline:none;}
+li{list-style:none;}
+a{text-decoration:none;}
+strong,b{font-weight:normal;}
+em,u{font-style:normal;}
+
+
+
+.fl{float:left;}
+.fr{float:right;}
+.clearfix:after{content:'.';clear:both;display:block;height:0;visibility:hidden;}

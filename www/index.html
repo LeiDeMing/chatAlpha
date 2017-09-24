@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>By Nei</title>
+    <link rel="stylesheet" href="styles/reset.css"/>
+    <link rel="stylesheet" href="styles/main.css"/>
+</head>
+<body>
+    <div class="shadeBox" id="shadeBox">
+        <p class="load">Loading......</p>
+        <div class="nameInput" id="nameInput">
+            <label><input name="name" placeholder="请输入名字" type="text"/></label>
+            <button class="nameBtn" id="nameBtn">确认</button>
+        </div>
+    </div>
+    <div class="wrap middle">
+        <div class="allBox clearfix">
+            <div class="allLeft fl">
+                <div class="chatTitle clearfix">
+                    <span id="showPeople" class="fr"></span>
+                </div>
+                <div class="chatMsg" id="chatMsg">
+
+                </div>
+                <div class="chatControls">
+                    <div class="component">
+                        <input name="color" type="color" placeholder="#000" class="conColor" id="conColor"/>
+                    </div>
+                    <div class="sendMsg clearfix">
+                        <label class="fl">
+                            <textarea id="sendMsg"></textarea>
+                        </label>
+                        <button class="sendBtn fl" id="sendBtn">发送</button>
+                    </div>
+                </div>
+            </div>
+            <div class="allRight fl"></div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="/socket.io/socket.io.js"></script>
+<script src="scripts/chat.js"></script>
