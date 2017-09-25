@@ -39,7 +39,7 @@ body {
 }
 
 .wrap .allBox {
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     height: 550px;
     /*margin-top: 10px;*/
 }
@@ -51,11 +51,14 @@ body {
 }
 
 .wrap .allBox .allRight {
+    padding-left:10px;
     height: 100%;
-    width:20%;
+    width:18%;
     background-color:indianred;
 }
-
+.wrap .allBox .allRight p{
+    margin-top:2px;
+}
 .wrap .allBox .allLeft .chatTitle{
     height:60px;
     background-color:greenyellow;

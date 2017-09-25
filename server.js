@@ -15,7 +15,8 @@ io.sockets.on('connection',function(socket){
             socket.nickName=nickname;
             users.push(nickname);
             socket.emit('loginSuccess');
-            io.sockets.emit('system',nickname,users.length,'login')
+            io.sockets.emit('system',nickname,users.length,'login');
+            io.sockets.emit('allUsers',users);
         }
     });
     socket.on('disconnect',function(){
@@ -27,6 +28,7 @@ io.sockets.on('connection',function(socket){
     socket.on('postMsg',function(msg,color){
         socket.broadcast.emit('newMsg',socket.nickName,msg,color);
     });
+
 });
 
 server.listen(3000);

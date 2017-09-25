@@ -24,12 +24,24 @@ Chat.prototype = {
             document.getElementById('shadeBox').style.display = 'none';
         });
         this.socket.on('system', function (user, userCount, type) {
-            var msg = user + (type === 'login' ? ' join' : ' left');
+            var msg = user + (type === 'login' ? ' 加入' : ' 离开');
             oThis._showNewMsg('system',msg,'red');
-            document.getElementById('showPeople').textContent=userCount+(userCount>1? ' users' :' user')+' online';
+            document.getElementById('showPeople').textContent=userCount+'用户在线';
         });
         this.socket.on('newMsg',function(user,msg,color){
             oThis._showNewMsg(user,msg,color);
+        });
+        this.socket.on('allUsers',function(users){
+            var container=document.getElementById('allUsers');
+            container.innerHTML='';
+            for(var x=0;x<users.length;x++){
+                var oA=document.createElement('a');
+                var oP=document.createElement('p');
+                oA.innerHTML=users[x];
+                oA.href='javascript:;';
+                oP.appendChild(oA);
+                container.appendChild(oP);
+            }
         });
         document.getElementById('nameBtn').addEventListener('click', function () {
             var nickname = document.getElementById('nameInput').getElementsByTagName('input')[0].value;
