@@ -49,24 +49,25 @@ Chat.prototype = {
 
         });
         document.getElementById('nameBtn').addEventListener('click', function () {
-            var nickname = document.getElementById('nameInput').getElementsByTagName('input')[0].value;
-            if (nickname.trim().length !== 0) {
-                oThis.socket.emit('login', nickname);
-            } else {
-                document.getElementById('nameInput').getElementsByTagName('input')[0].focus();
-            }
+            oThis._name();
         }, false);
-        document.getElementById('sendBtn').addEventListener('click', function () {
-            var msg = document.getElementById('sendMsg').value,
-                color = document.getElementById('conColor').value;
-            if (msg.trim().length !== 0) {
-                oThis._showNewMsg('me', msg, color);
-                oThis.socket.emit('postMsg', msg, color);
+        document.getElementById('name').addEventListener('keydown',function(event){
+            event=event || window.event;
+            if(event.keyCode===13){
+                oThis._name();
             }
-            document.getElementById('sendMsg').value = '';
-            document.getElementById('sendMsg').focus();
+        });
+        document.getElementById('sendBtn').addEventListener('click', function () {
+            oThis._msg();
             return;
         }, false);
+        document.getElementById('sendMsg').addEventListener('keydown',function(event){
+            event=event || window.event;
+            if(event.ctrlKey && event.keyCode===13){
+                oThis._msg();
+            }
+            return;
+        },false);
         document.getElementById('sendImg').addEventListener('change', function () {
             // console.log(this.files);
             var that = this;
@@ -87,6 +88,24 @@ Chat.prototype = {
                 reader.readAsDataURL(file);
             }
         }, false)
+    },
+    _name:function(){
+        var nickname = document.getElementById('nameInput').getElementsByTagName('input')[0].value;
+        if (nickname.trim().length !== 0) {
+            this.socket.emit('login', nickname);
+        } else {
+            document.getElementById('nameInput').getElementsByTagName('input')[0].focus();
+        }
+    },
+    _msg:function(){
+        var msg = document.getElementById('sendMsg').value,
+            color = document.getElementById('conColor').value;
+        if (msg.trim().length !== 0) {
+            this._showNewMsg('me', msg, color);
+            this.socket.emit('postMsg', msg, color);
+        }
+        document.getElementById('sendMsg').value = '';
+        document.getElementById('sendMsg').focus();
     },
     _showNewMsg: function (users, msg, color) {
         var container = document.getElementById('chatMsg'),
