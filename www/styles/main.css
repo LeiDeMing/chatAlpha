@@ -20,6 +20,7 @@ body {
     opacity:0.4;
     position:absolute;
     overflow:hidden;
+    z-index:9999;
 }
 .shadeBox p{
     color:#fff;
@@ -41,27 +42,36 @@ body {
 .wrap .allBox {
     /*border: 1px solid black;*/
     height: 550px;
+    position:relative;
     /*margin-top: 10px;*/
 }
-
+.wrap .allBox .showUsers{
+    position:absolute;
+    top:0px;
+    right:56px;
+}
 .wrap .allBox .allLeft {
     height: 100%;
     width:80%;
-    background-color:skyblue;
+
 }
 
 .wrap .allBox .allRight {
     padding-left:10px;
-    height: 100%;
+    height: 96%;
     width:18%;
-    background-color:indianred;
+    background-color:darkgray;
+    position:relative;
+    padding-top:22px;
 }
+
 .wrap .allBox .allRight p{
     margin-top:2px;
 }
+
 .wrap .allBox .allLeft .chatTitle{
     height:60px;
-    background-color:greenyellow;
+    background-color:darkgray;
 }
 .wrap .allBox .allLeft .chatTitle span{
     line-height:60px;
@@ -69,10 +79,35 @@ body {
 .wrap .allBox .allLeft .chatMsg{
     height:360px;
     background-color:#fff;
+    overflow:auto;
+}
+.wrap .allBox .allLeft .chatMsg .timeSpan{
+    color:#000;
+}
+.wrap .allBox .allLeft .chatMsg p img{
+    max-width:99%;
 }
 .wrap .allBox .allLeft .chatControls .component{
     height:30px;
-    background-color:dimgrey;
+
+}
+.wrap .allBox .allLeft .chatControls .component .sendImgBox{
+    position:relative;
+    display:inline-block;
+}
+.wrap .allBox .allLeft .chatControls .component .sendImgBox input{
+    width:50px;
+    height:30px;
+    border:none;
+    display:inline-block;
+    margin-left:20px;
+}
+.wrap .allBox .allLeft .chatControls .component .sendImgBox .sendImg{
+    position:absolute;
+    top:0px;
+    left:0px;
+    overflow:hidden;
+    opacity:0;
 }
 .wrap .allBox .allLeft .chatControls .component .conColor{
     border:none;

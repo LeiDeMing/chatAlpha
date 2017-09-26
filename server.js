@@ -11,7 +11,6 @@ io.sockets.on('connection',function(socket){
         if(users.indexOf(nickname)>-1){
             socket.emit('userExisted');
         }else{
-            socket.userIndex=users.length;
             socket.nickName=nickname;
             users.push(nickname);
             socket.emit('loginSuccess');
@@ -21,14 +20,17 @@ io.sockets.on('connection',function(socket){
     });
     socket.on('disconnect',function(){
         if(socket.nickName!==null){
-            users.splice(socket.userIndex,1);
+            users.splice(users.lengtg,1);
             socket.broadcast.emit('system',socket.nickName,users.length,'logout');
+            socket.broadcast.emit('allUsers',users);
         }
     });
     socket.on('postMsg',function(msg,color){
         socket.broadcast.emit('newMsg',socket.nickName,msg,color);
     });
-
+    socket.on('postImg',function(img,color){
+        socket.broadcast.emit('newImg',socket.nickName,img,color);
+    });
 });
 
 server.listen(3000);

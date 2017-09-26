@@ -7,39 +7,42 @@
     <link rel="stylesheet" href="styles/main.css"/>
 </head>
 <body>
-    <div class="shadeBox" id="shadeBox">
-        <p class="load">Loading......</p>
-        <div class="nameInput" id="nameInput">
-            <label><input name="name" placeholder="请输入名字" type="text"/></label>
-            <button class="nameBtn" id="nameBtn">确认</button>
-        </div>
+<div class="shadeBox" id="shadeBox">
+    <p class="load">Loading......</p>
+    <div class="nameInput" id="nameInput">
+        <label><input name="name" placeholder="请输入名字" type="text"/></label>
+        <button class="nameBtn" id="nameBtn">确认</button>
     </div>
-    <div class="wrap middle">
-        <div class="allBox clearfix">
-            <div class="allLeft fl">
-                <div class="chatTitle clearfix">
-                    <span id="showPeople" class="fr"></span>
-                </div>
-                <div class="chatMsg" id="chatMsg">
-
-                </div>
-                <div class="chatControls">
-                    <div class="component">
-                        <input name="color" type="color" placeholder="#000" class="conColor" id="conColor"/>
-                    </div>
-                    <div class="sendMsg clearfix">
-                        <label class="fl">
-                            <textarea id="sendMsg"></textarea>
-                        </label>
-                        <button class="sendBtn fl" id="sendBtn">发送</button>
-                    </div>
-                </div>
-            </div>
-            <div class="allRight fl" id="allUsers">
+</div>
+<div class="wrap middle">
+    <div class="allBox clearfix">
+        <div class="allLeft fl">
+            <div class="chatTitle clearfix">
 
             </div>
+            <div class="chatMsg" id="chatMsg">
+
+            </div>
+            <div class="chatControls clearfix">
+                <div class="component fl">
+                    <label class="fl"><input name="color" type="color" placeholder="#000" class="conColor" id="conColor"/></label>
+                    <label class="sendImgBox fl">
+                        <input name="image" value="image" type="button"/>
+                        <input name="image" value="file" type="file" class="sendImg" id="sendImg"/>
+                    </label>
+                </div>
+                <div class="sendMsg fl">
+                    <label class="fl">
+                        <textarea id="sendMsg"></textarea>
+                    </label>
+                    <button class="sendBtn fl" id="sendBtn">发送</button>
+                </div>
+            </div>
         </div>
+        <div class="allRight fl"  id="allUsers"></div>
+        <span id="showUsers" class="fr showUsers"></span>
     </div>
+</div>
 </body>
 </html>
 <script src="/socket.io/socket.io.js"></script>
